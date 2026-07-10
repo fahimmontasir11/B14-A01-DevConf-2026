@@ -403,39 +403,7 @@ li {
   }
 }
 
-/* ==============================
-   AI
-   ============================== */
-/* Updated CSS Styling */
-.ai-generator-section {
-  padding: 60px 20px;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  justify-items: center;
-}
 
-.content-box {
-  background: white;
-  padding: 40px;
-  border-radius: 12px;
-  text-align: center;
-  width: 100%;
-  border: 3px dashed #d1d5db;
-  justify-self: center;
-}
-
-.content-box h2 {
-  margin: 0 0 10px 0;
-  color: #111827;
-  font-size: 3.5rem;
-}
-
-.subheading {
-  margin: 0 0 25px 0;
-  color: #6b7280;
-  font-size: 1rem;
-}
 
 /* ==============================
    FOOTER
