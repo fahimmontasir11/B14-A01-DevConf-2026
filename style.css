@@ -1,0 +1,461 @@
+/* ==============================
+   DevConf 2026 - main stylesheet
+   ============================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #333333;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+li {
+  list-style: none;
+}
+
+.container {
+  width: 90%;
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+/* buttons */
+
+.btn {
+  padding: 12px 26px;
+  border: none;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.btn-blue {
+  background-color: #2563eb;
+  color: #ffffff;
+}
+
+.btn-blue:hover {
+  background-color: #1d4ed8;
+}
+
+.btn-white {
+  background-color: #ffffff;
+  color: #333333;
+  border: 1px solid #d1d5db;
+}
+
+.btn-white:hover {
+  border-color: #888888;
+}
+
+/* ==============================
+   HEADER
+   ============================== */
+
+.site-header {
+  border-bottom: 1px solid #e5e7eb;
+  padding: 15px 0;
+  height: 98px;
+  display: flex;
+  align-items: center;
+  /* justify-content: space-between */
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-img {
+  width: auto;
+  height: 44px;
+}
+
+.logo-text {
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 1.1;
+}
+
+.nav-menu {
+  display: flex;
+  gap: 28px;
+}
+
+.nav-menu a {
+  color: #575757;
+  font-size: 15px;
+}
+
+.nav-menu a:hover {
+  color: #333333;
+}
+
+.nav-button {
+  height: 56px;
+  width: 192px;
+}
+
+/* hide nav menu on smaller screens, keep it simple */
+@media (max-width: 768px) {
+  .nav-menu {
+    display: none;
+  }
+}
+
+/* ==============================
+   HERO SECTION
+   ============================== */
+
+.hero {
+  height: 786px;
+  position: relative;
+  background-color: #050505;
+  text-align: center;
+  padding: 100px 20px 80px 20px;
+  overflow: hidden;
+}
+
+.hero-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.55;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* the Figma frame has 2 linear gradients stacked on top of the photo,
+     so I'm using 2 gradients here too instead of just 1 flat overlay */
+  background-image: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.15) 0%,
+      rgba(0, 0, 0, 0.65) 100%
+    ),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.55) 0%, rgba(0, 0, 0, 0) 45%);
+}
+
+.hero-text {
+  position: relative;
+  /* max-width: 700px; */
+  margin: 0 auto;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+}
+.hero-text-inside {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.hero-text h1 {
+  font-size: 80px;
+  margin-bottom: 20px;
+}
+
+.hero-text p {
+  font-size: 17px;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 35px;
+  line-height: 1.6;
+  max-width: 829px;
+  text-align: center;
+}
+
+.hero-btn {
+  height: 74px;
+  width: 282px;
+  font-size: 24px;
+}
+
+/* smaller hero text on mobile */
+@media (max-width: 600px) {
+  .hero-text h1 {
+    font-size: 32px;
+  }
+}
+
+/* ==============================
+   SPEAKERS SECTION
+   ============================== */
+
+.speakers-section {
+  padding: 90px 0;
+}
+
+.section-heading {
+  text-align: center;
+  font-size: 56px;
+  font-weight: bold;
+  margin-bottom: 50px;
+  color: #000102;
+}
+
+.speaker-row {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+.speaker-card {
+  flex: 1;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.speaker-card img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+}
+
+.speaker-card img.grayscale {
+  filter: grayscale(100%);
+}
+
+.speaker-info {
+  padding: 20px;
+}
+
+.tag {
+  color: #2563eb;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+
+.speaker-info h3 {
+  font-size: 18px;
+  margin-bottom: 4px;
+  color: #0d1b2a;
+}
+
+.role {
+  color: #575757;
+  font-size: 14px;
+}
+
+/* stack speaker cards on small screens */
+@media (max-width: 700px) {
+  .speaker-row {
+    flex-direction: column;
+  }
+}
+
+/* ==============================
+   PRICING SECTION
+   ============================== */
+
+.pricing-section {
+  padding: 90px 0 100px 0;
+}
+
+.section-heading-pricing {
+  text-align: center;
+  font-size: 48px;
+  font-weight: bold;
+  margin-bottom: 50px;
+  color: #000102;
+}
+
+.section-subtext {
+  text-align: center;
+  font-size: 16px;
+  color: #575757;
+  margin-bottom: 45px;
+  margin-top: -30px;
+}
+
+.pricing-row {
+  display: flex;
+  gap: 24px;
+}
+
+.price-card {
+  flex: 1;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 30px;
+}
+
+.price-card hr {
+  border: none;
+  border-top: 1px solid #e5e7eb;
+  margin-bottom: 20px;
+}
+
+.price-card-dark {
+  background-color: #0d1b2a;
+  color: #ffffff;
+}
+
+.price-card-dark hr {
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.price-card-gray {
+  background-color: #f8f9fb;
+}
+
+.plan-name {
+  font-size: 13px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  color: #888888;
+  margin-bottom: 12px;
+}
+
+.price-card-dark .plan-name {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.plan-price {
+  font-size: 34px;
+  margin-bottom: 6px;
+}
+
+.plan-period {
+  font-size: 14px;
+  color: #888888;
+  margin-bottom: 20px;
+}
+
+.price-card-dark .plan-period {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.feature-list {
+  margin-bottom: 25px;
+}
+
+.feature-list li {
+  font-size: 14px;
+  color: #575757;
+  padding-left: 16px;
+  position: relative;
+  line-height: 1.9;
+}
+
+.price-card-dark .feature-list li {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* .feature-list li::before {
+  content: ".";
+  position: absolute;
+  left: 0;
+} */
+
+.card-btn-1 {
+  width: 100%;
+  font-size: 14px;
+  font-weight: semibold;
+  color: #2563eb;
+}
+
+.card-btn {
+  width: 100%;
+  font-size: 14px;
+  font-weight: semibold;
+}
+
+/* stack pricing cards on small screens */
+@media (max-width: 900px) {
+  .pricing-row {
+    flex-direction: column;
+  }
+}
+
+/* ==============================
+   AI
+   ============================== */
+/* Updated CSS Styling */
+.ai-generator-section {
+  padding: 60px 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  justify-items: center;
+}
+
+.content-box {
+  background: white;
+  padding: 40px;
+  border-radius: 12px;
+  text-align: center;
+  width: 100%;
+  border: 3px dashed #d1d5db;
+  justify-self: center;
+}
+
+.content-box h2 {
+  margin: 0 0 10px 0;
+  color: #111827;
+  font-size: 3.5rem;
+}
+
+.subheading {
+  margin: 0 0 25px 0;
+  color: #6b7280;
+  font-size: 1rem;
+}
+
+/* ==============================
+   FOOTER
+   ============================== */
+
+.site-footer {
+  background-color: #0d1b2a;
+  border-top: 1px solid #e5e7eb;
+  text-align: center;
+  padding: 25px 60px;
+  color: #888888;
+  font-size: 14px;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  justify-items: center;
+}
+
+.site-footer div {
+  display: flex;
+  flex-direction: row;
+}
