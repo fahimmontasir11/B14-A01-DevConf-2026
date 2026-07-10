@@ -1,7 +1,3 @@
-/* ==============================
-   DevConf 2026 - main stylesheet
-   ============================== */
-
 * {
   margin: 0;
   padding: 0;
@@ -73,13 +69,17 @@ li {
   height: 98px;
   display: flex;
   align-items: center;
-  /* justify-content: space-between */
 }
 
 .navbar {
+  /* using position:relative here so the menu can be centered with
+     position:absolute below, instead of just sitting wherever
+     space-between happens to put it */
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  width: 100%;
 }
 
 .logo {
@@ -100,6 +100,10 @@ li {
 }
 
 .nav-menu {
+  /* centered on the navbar no matter how wide the logo or button are */
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
   gap: 28px;
 }
@@ -116,13 +120,6 @@ li {
 .nav-button {
   height: 56px;
   width: 192px;
-}
-
-/* hide nav menu on smaller screens, keep it simple */
-@media (max-width: 768px) {
-  .nav-menu {
-    display: none;
-  }
 }
 
 /* ==============================
@@ -166,7 +163,6 @@ li {
 
 .hero-text {
   position: relative;
-  /* max-width: 700px; */
   margin: 0 auto;
   color: #ffffff;
   display: flex;
@@ -200,13 +196,6 @@ li {
   height: 74px;
   width: 282px;
   font-size: 24px;
-}
-
-/* smaller hero text on mobile */
-@media (max-width: 600px) {
-  .hero-text h1 {
-    font-size: 32px;
-  }
 }
 
 /* ==============================
@@ -270,13 +259,6 @@ li {
 .role {
   color: #575757;
   font-size: 14px;
-}
-
-/* stack speaker cards on small screens */
-@media (max-width: 700px) {
-  .speaker-row {
-    flex-direction: column;
-  }
 }
 
 /* ==============================
@@ -377,33 +359,89 @@ li {
   color: rgba(255, 255, 255, 0.85);
 }
 
-/* .feature-list li::before {
-  content: ".";
+/* bullet marker for each feature - the assignment asks for a
+   bullet list, so this needs to actually show a bullet */
+.feature-list li::before {
+  content: "•";
   position: absolute;
   left: 0;
-} */
+  color: #888888;
+}
+
+.price-card-dark .feature-list li::before {
+  color: rgba(255, 255, 255, 0.5);
+}
 
 .card-btn-1 {
   width: 100%;
   font-size: 14px;
-  font-weight: semibold;
+  font-weight: 600;
   color: #2563eb;
 }
 
 .card-btn {
   width: 100%;
   font-size: 14px;
-  font-weight: semibold;
+  font-weight: 600;
 }
 
-/* stack pricing cards on small screens */
-@media (max-width: 900px) {
-  .pricing-row {
-    flex-direction: column;
-  }
+/* ==============================
+   HACKATHON SECTION (the AI challenge section)
+   ============================== */
+
+.hackathon-section {
+  background-color: #ede9fe;
+  padding: 90px 0;
+  text-align: center;
 }
 
+.hackathon-label {
+  font-size: 13px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  color: #7c3aed;
+  margin-bottom: 14px;
+}
 
+.hackathon-heading {
+  font-size: 42px;
+  font-weight: bold;
+  color: #4c1d95;
+  margin-bottom: 16px;
+}
+
+.hackathon-subtext {
+  font-size: 16px;
+  color: #5b21b6;
+  max-width: 600px;
+  margin: 0 auto 40px auto;
+  line-height: 1.6;
+}
+
+.hackathon-stats {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin-bottom: 40px;
+}
+
+.stat-box {
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 24px 36px;
+  min-width: 160px;
+}
+
+.stat-box h3 {
+  font-size: 30px;
+  color: #4c1d95;
+  margin-bottom: 6px;
+}
+
+.stat-box p {
+  font-size: 14px;
+  color: #6b7280;
+}
 
 /* ==============================
    FOOTER
@@ -411,19 +449,65 @@ li {
 
 .site-footer {
   background-color: #0d1b2a;
-  border-top: 1px solid #e5e7eb;
-  text-align: center;
-  padding: 25px 60px;
-  color: #888888;
-  font-size: 14px;
-
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  justify-items: center;
+  padding: 40px 0 25px 0;
 }
 
-.site-footer div {
+.footer-top {
   display: flex;
-  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.footer-logo {
+  height: 36px;
+  width: auto;
+}
+
+.social-links {
+  display: flex;
+  gap: 12px;
+}
+
+.social-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.social-icon:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.footer-divider {
+  border: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  margin: 28px 0;
+}
+
+.footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #888888;
+  font-size: 14px;
+}
+
+.footer-links {
+  display: flex;
+  gap: 24px;
+}
+
+.footer-links p {
+  color: #888888;
+}
+
+.footer-links p:hover {
+  color: #ffffff;
 }
